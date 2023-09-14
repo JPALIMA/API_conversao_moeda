@@ -1,9 +1,10 @@
-#gem necessária: 'exchange_rate' para obter taxas do câmbio atualiazadas
+# gem necessária: 'exchange_rate' para obter taxas do câmbio atualizadas
 require 'sinatra'
 require 'exchange_rate'
 
-#Definindo as moedas suportadas e suas taxas de câmbio
+#definindo as moedas suportadas e suas taxas de câmbio
 EXCHANGE_RATES = {
+
      'USD' => 1.0,
      'EUR' => 0.85,
      'GBP' => 0.75
@@ -16,9 +17,10 @@ get '/convert' do
 
      if EXCHANGE_RATES.key?(from_currency) && EXCHANGE_RATES.key?(to_currency)
           converted_amount = amount * (EXCHANGE_RATES[to_currency] / EXCHANGE_RATES[from_currency])
-          {amount: converted_amount, corrency: to_currency}.to_json
+          {amount: converted_amount, currency: to_currency}.to_json
      else
           status 400
           'Moeda nao suportada'
      end
 end
+
