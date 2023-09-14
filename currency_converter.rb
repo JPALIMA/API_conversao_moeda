@@ -6,10 +6,10 @@ require 'exchange_rate'
 EXCHANGE_RATES = {
      'USD' => 1.0,
      'EUR' => 0.85,
-     'GBP' => 0,75
+     'GBR' => 0.75
 }
 
-get '/convert' do 
+get '/convert' do
      from_currency = params['from']
      to_currency = params['to']
      amount = params['amount'].to_f
