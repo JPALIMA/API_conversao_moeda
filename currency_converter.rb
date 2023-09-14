@@ -1,16 +1,15 @@
-# gem necessária: 'exchange_rate' para obter taxas do câmbio atualizadas
+#gem necessária: 'exchange_rate' para obter taxas do câmbio atualizadas
 require 'sinatra'
 require 'exchange_rate'
 
 #definindo as moedas suportadas e suas taxas de câmbio
 EXCHANGE_RATES = {
-
      'USD' => 1.0,
      'EUR' => 0.85,
-     'GBP' => 0.75
+     'GBP' => 0,75
 }
 
-get '/convert' do
+get '/convert' do 
      from_currency = params['from']
      to_currency = params['to']
      amount = params['amount'].to_f
@@ -23,4 +22,3 @@ get '/convert' do
           'Moeda nao suportada'
      end
 end
-
